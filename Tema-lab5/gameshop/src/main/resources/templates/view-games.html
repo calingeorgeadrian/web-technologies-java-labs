@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Games</title>
+</head>
+<body>
+<h1> View All Games</h1>
+<table>
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>Title</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:if="${gameDtos.empty}">
+        <td colspan="2">No games available</td>
+    </tr>
+    <tr th:each="gameDto : ${gameDtos}">
+        <td> <a th:href="@{/games/{id}(id=${gameDto.gameId})}"><span th:text="${gameDto.gameId}"> Id </span></a></td>
+        <td> <span th:text="${gameDto.gameTitle}"> Title </span></td>
+        <td> <a th:href="@{/games/view-update/{id}(id=${gameDto.gameId})}">Edit</a></td>
+        <td> <a th:href="@{/games/delete/{id}(id=${gameDto.gameId})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/games/view-create}"> <h3>Add new Game</h3></a>
+</body>
+</html>

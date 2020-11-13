@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Game</title>
+</head>
+<body>
+<h1> View Game</h1>
+
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Price</td>
+        <td>Min Players</td>
+        <td>Max Players</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td> <span th:text="${gameDto.gameId}"> Id </span></td>
+        <td> <span th:text="${gameDto.gameTitle}"> Title </span></td>
+        <td> <span th:text="${gameDto.gameDescription}"> Description </span></td>
+        <td> <span th:text="${gameDto.gamePrice}"> Price </span></td>
+        <td> <span th:text="${gameDto.minPlayers}"> Min Players </span></td>
+        <td> <span th:text="${gameDto.maxPlayers}"> Max Players </span></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+</body>
+</html>
