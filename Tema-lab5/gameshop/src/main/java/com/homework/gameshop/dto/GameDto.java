@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -20,8 +21,8 @@ import javax.validation.constraints.Size;
 public class GameDto {
 
     @NotNull
-    @Pattern(regexp = "^[0-9]*$")
-    @Size(min=4, max = 4)
+    @Pattern(regexp = "^(([a-z]+[0-9]*) ?)*$")
+    @Size(min=3, max = 4)
     private String gameId;
 
     @Size(min=3, max=16)
@@ -30,12 +31,12 @@ public class GameDto {
     @Size(min=3, max=32)
     private String gameDescription;
 
-    @Size(min=1)
+    @Min(value = 1, message = "Price should not be less than 1")
     private int gamePrice;
 
-    @Size(min=1)
+    @Min(value = 1, message = "Min player number should not be less than 1")
     private int gameMinPlayers;
 
-    @Size(min=1)
+    @Min(value = 1, message = "Max player number should not be less than 1")
     private int gameMaxPlayers;
 }
