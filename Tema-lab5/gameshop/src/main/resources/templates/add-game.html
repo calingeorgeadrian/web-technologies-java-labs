@@ -7,34 +7,30 @@
 <body>
 <h1> Create game</h1>
 
-<!--th:action="@{/shops/create} -> path-ul endpointului pentru care vrem sa raspundem cu acest view-->
-<!--th:object="${shopDto}"-> obiectul pentru care facem binding-->
-<!--method="post"-> request mappingul endpintului (@PostMapping)-->
-
 <form action="#" th:action="@{/games/create}" th:object="${gameDto}" method="post">
-    <label for="id">Id</label></br>
+    <label for="id">Id</label><br>
     <input type="text" th:field="*{gameId}" id="id">
-    <span th:if="${#fields.hasErrors('gameId')}" th:errors="*{gameId}"></span></br>
+    <span th:if="${#fields.hasErrors('gameId')}" th:errors="*{gameId}"></span><br>
 
-    <label for="title">Title</label></br>
+    <label for="title">Title</label><br>
     <input type="text" th:field="*{gameTitle}" id="title">
-    <span th:if="${#fields.hasErrors('gameTitle')}" th:errors="*{gameTitle}"></span></br>
+    <span th:if="${#fields.hasErrors('gameTitle')}" th:errors="*{gameTitle}"></span><br>
 
-    <label for="description">Description</label></br>
+    <label for="description">Description</label><br>
     <input type="text" th:field="*{gameDescription}" id="description">
-    <span th:if="${#fields.hasErrors('gameDescription')}" th:errors="*{gameDescription}"></span></br>
+    <span th:if="${#fields.hasErrors('gameDescription')}" th:errors="*{gameDescription}"></span><br>
 
-    <label for="price">Price</label></br>
+    <label for="price">Price</label><br>
     <input type="number" th:field="*{gamePrice}" id="price">
-    <span th:if="${#fields.hasErrors('gamePrice')}" th:errors="*{gamePrice}"></span></br>
+    <span th:if="${#fields.hasErrors('gamePrice')}" th:errors="*{gamePrice}"></span><br>
 
-    <label for="minPlayers">Min Players</label></br>
+    <label for="minPlayers">Min Players</label><br>
     <input type="number" th:field="*{gameMinPlayers}" id="minPlayers">
-    <span th:if="${#fields.hasErrors('gameMinPlayers')}" th:errors="*{gameMinPlayers}"></span></br>
+    <span th:if="${#fields.hasErrors('gameMinPlayers')}" th:errors="*{gameMinPlayers}"></span><br>
 
-    <label for="maxPlayers">Max Players</label></br>
+    <label for="maxPlayers">Max Players</label><br>
     <input type="number" th:field="*{gameMaxPlayers}" id="maxPlayers">
-    <span th:if="${#fields.hasErrors('gameMaxPlayers')}" th:errors="*{gameMaxPlayers}"></span></br>
+    <span th:if="${#fields.hasErrors('gameMaxPlayers')}" th:errors="*{gameMaxPlayers}"></span><br>
     <input type="submit" value="Add">
 </form>
 </body>
