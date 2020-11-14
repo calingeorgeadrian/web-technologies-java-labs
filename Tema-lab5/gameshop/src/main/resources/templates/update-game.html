@@ -9,7 +9,7 @@
 
 <form action="#" th:action="@{/games/update/{id}(id=${gameDto.gameId})}" th:object="${gameDto}" method="post">
     <label for="id">Id</label>
-    <input type="text" th:field="*{gameId}" id="id" th:readonly="${shopDto.shopCUI}!=null">
+    <input type="text" th:field="*{gameId}" id="id" th:readonly="${gameDto.gameId}!=null">
     <span th:if="${#fields.hasErrors('gameId')}" th:errors="*{gameId}"></span>
 
     <label for="title">Title</label>
