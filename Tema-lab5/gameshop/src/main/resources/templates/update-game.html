@@ -8,29 +8,29 @@
 <h1> Update game</h1>
 
 <form action="#" th:action="@{/games/update/{id}(id=${gameDto.gameId})}" th:object="${gameDto}" method="post">
-    <label for="id">Id</label>
+    <label for="id">Id</label><br>
     <input type="text" th:field="*{gameId}" id="id" th:readonly="${gameDto.gameId}!=null">
-    <span th:if="${#fields.hasErrors('gameId')}" th:errors="*{gameId}"></span>
+    <span th:if="${#fields.hasErrors('gameId')}" th:errors="*{gameId}"></span><br>
 
-    <label for="title">Title</label>
+    <label for="title">Title</label><br>
     <input type="text" th:field="*{gameTitle}" id="title">
-    <span th:if="${#fields.hasErrors('gameTitle')}" th:errors="*{gameTitle}"></span>
+    <span th:if="${#fields.hasErrors('gameTitle')}" th:errors="*{gameTitle}"></span><br>
 
-    <label for="description">Description</label>
+    <label for="description">Description</label><br>
     <input type="text" th:field="*{gameDescription}" id="description">
-    <span th:if="${#fields.hasErrors('gameDescription')}" th:errors="*{gameDescription}"></span>
+    <span th:if="${#fields.hasErrors('gameDescription')}" th:errors="*{gameDescription}"></span><br>
 
-    <label for="price">Price</label>
+    <label for="price">Price</label><br>
     <input type="number" th:field="*{gamePrice}" id="price">
-    <span th:if="${#fields.hasErrors('gamePrice')}" th:errors="*{gamePrice}"></span>
+    <span th:if="${#fields.hasErrors('gamePrice')}" th:errors="*{gamePrice}"></span><br>
 
-    <label for="minPlayers">Min Players</label>
+    <label for="minPlayers">Min Players</label><br>
     <input type="number" th:field="*{gameMinPlayers}" id="minPlayers">
-    <span th:if="${#fields.hasErrors('gameMinPlayers')}" th:errors="*{gameMinPlayers}"></span>
+    <span th:if="${#fields.hasErrors('gameMinPlayers')}" th:errors="*{gameMinPlayers}"></span><br>
 
-    <label for="maxPlayers">Max Players</label>
+    <label for="maxPlayers">Min Players</label><br>
     <input type="number" th:field="*{gameMaxPlayers}" id="maxPlayers">
-    <span th:if="${#fields.hasErrors('gameMaxPlayers')}" th:errors="*{gameMaxPlayers}"></span>
+    <span th:if="${#fields.hasErrors('gameMaxPlayers')}" th:errors="*{gameMaxPlayers}"></span><br>
     <input type="submit" value="Update">
 </form>
 </body>

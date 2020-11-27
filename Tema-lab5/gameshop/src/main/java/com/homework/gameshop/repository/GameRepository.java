@@ -43,7 +43,9 @@ public class GameRepository {
 
     private void setContextForGameRepository() {
         for (int i = 0; i < 5; i++) {
-            createAndSave(  "gm" + i, "Game " + i, "Description of game " + i, (int) (Math.random() * 100), (int) (Math.random() * 2),  (int) (2 * (Math.random() * 2)));
+            int minPlayers = (int) (Math.random() * 2);
+            int maxPlayers = minPlayers + 2;
+            createAndSave(  "gm" + i, "Game " + i, "Description of game " + i, (int) (Math.random() * 100), minPlayers, maxPlayers);
         }
     }
 
