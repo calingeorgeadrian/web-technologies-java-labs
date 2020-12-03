@@ -22,6 +22,11 @@ public class OrderController {
         this.orderService = orderService;
     }
 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<OrderDto> get(@PathVariable String id) {
+        return new ResponseEntity<>(orderService.get(id), HttpStatus.OK);
+    }
+
     @GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<OrderDto> getAll() {
         return orderService.getAll();

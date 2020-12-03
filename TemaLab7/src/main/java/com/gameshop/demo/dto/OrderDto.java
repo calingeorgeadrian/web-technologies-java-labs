@@ -1,10 +1,23 @@
 package com.gameshop.demo.dto;
 
+import com.gameshop.demo.validators.MaxCopies;
+import com.gameshop.demo.validators.OnStock;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@MaxCopies(message="You can not order more than 2 copies of the same game.")
+@OnStock(message="All games must be in stock.")
 public class OrderDto {
     @NotNull
     @Pattern(regexp = "^(([a-z]+[0-9]*) ?)*$")

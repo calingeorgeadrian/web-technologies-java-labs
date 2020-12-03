@@ -22,7 +22,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
     public OrderDto get(String id) {
-        return orderMapper.mapToDto(orderRepository.get(id).get());
+        return orderMapper.mapToDto(orderRepository.get(id));
     }
 
     public List<OrderDto> getAll() {

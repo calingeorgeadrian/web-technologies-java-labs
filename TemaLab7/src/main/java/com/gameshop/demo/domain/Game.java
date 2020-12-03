@@ -12,5 +12,6 @@ public class Game {
     private String id;
     private String title;
     private String description;
-    private int price;
+    private Integer price;
+    private Integer stock;
 }

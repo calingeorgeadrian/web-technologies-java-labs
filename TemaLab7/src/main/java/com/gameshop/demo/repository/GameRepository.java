@@ -1,6 +1,7 @@
 package com.gameshop.demo.repository;
 
 import com.gameshop.demo.domain.Game;
+import com.gameshop.demo.exceptions.EntityNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -17,8 +18,10 @@ public class GameRepository {
         setContextForGameRepository();
     }
 
-    public Optional<Game> get(String id) {
-        return gameList.stream().filter(game -> game.getId().equals(id)).findFirst();
+    public Game get(String id) {
+        return gameList.stream().filter(game -> game.getId().equals(id))
+                .findAny()
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Game with id %s could not be found", id)));
     }
 
     public List<Game> getAll() {
@@ -31,9 +34,9 @@ public class GameRepository {
     }
 
     public String delete(String id) {
-        Optional<Game> gameOptional = get(id);
-        if (gameOptional.isPresent()) {
-            gameList.remove(gameOptional.get());
+        Game gameOptional = get(id);
+        if (gameOptional != null) {
+            gameList.remove(gameOptional);
             return "Removed!";
         }
         return "Game not game!";
@@ -41,11 +44,11 @@ public class GameRepository {
     }
 
     public Game update(Game request) {
-        Optional<Game> gameOptional = get(request.getId());
-        if (gameOptional.isPresent()) {
-            gameList.remove(gameOptional.get());
+        Game gameOptional = get(request.getId());
+        if (gameOptional != null) {
+            gameList.remove(gameOptional);
             gameList.add(request);
-            return get(request.getId()).get();
+            return get(request.getId());
         }
         return null;
     }
@@ -57,6 +60,7 @@ public class GameRepository {
                     .title("Game " + i)
                     .description("Description of game " + i)
                     .price((int)(Math.random() * 100))
+                    .stock((int)(Math.random() * 5))
                     .build());
         }
     }

@@ -22,6 +22,11 @@ public class GameController {
         this.gameService = gameService;
     }
 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<GameDto> get(@PathVariable String id) {
+        return new ResponseEntity<>(gameService.get(id), HttpStatus.OK);
+    }
+
     @GetMapping(path = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<GameDto> getAll() {
         return gameService.getAll();

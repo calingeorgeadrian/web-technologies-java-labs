@@ -22,7 +22,7 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
     public GameDto get(String id) {
-        return gameMapper.mapToDto(gameRepository.get(id).get());
+        return gameMapper.mapToDto(gameRepository.get(id));
     }
 
     public List<GameDto> getAll() {

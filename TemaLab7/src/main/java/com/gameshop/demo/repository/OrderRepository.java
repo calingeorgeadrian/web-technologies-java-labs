@@ -2,6 +2,7 @@ package com.gameshop.demo.repository;
 
 import com.gameshop.demo.domain.Game;
 import com.gameshop.demo.domain.Order;
+import com.gameshop.demo.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,8 +23,10 @@ public class OrderRepository {
         setContextForOrderRepository();
     }
 
-    public Optional<Order> get(String id) {
-        return orderList.stream().filter(order -> order.getId().equals(id)).findFirst();
+    public Order get(String id) {
+        return orderList.stream().filter(order -> order.getId().equals(id))
+                .findAny()
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Order with id %s could not be found", id)));
     }
 
     public List<Order> getAll() {
@@ -36,9 +39,9 @@ public class OrderRepository {
     }
 
     public String delete(String id) {
-        Optional<Order> orderOptional = get(id);
-        if (orderOptional.isPresent()) {
-            orderList.remove(orderOptional.get());
+        Order orderOptional = get(id);
+        if (orderOptional != null) {
+            orderList.remove(orderOptional);
             return "Removed!";
         }
         return "Order not order!";
@@ -46,11 +49,11 @@ public class OrderRepository {
     }
 
     public Order update(Order request) {
-        Optional<Order> orderOptional = get(request.getId());
-        if (orderOptional.isPresent()) {
-            orderList.remove(orderOptional.get());
+        Order orderOptional = get(request.getId());
+        if (orderOptional != null) {
+            orderList.remove(orderOptional);
             orderList.add(request);
-            return get(request.getId()).get();
+            return get(request.getId());
         }
         return null;
     }
@@ -58,8 +61,10 @@ public class OrderRepository {
     private List<Game> getGamesForOrder(int orderIndex) {
         List<Game> games = new ArrayList<>();
         for (int i = 0; i < orderIndex+1; i++) {
-            Optional<Game> gameById = gameRepository.get("gm" + i);
-            gameById.ifPresent(games::add);
+            Game gameById = gameRepository.get("gm" + i);
+            if(gameById != null) {
+                games.add((gameById));
+            }
         }
         return games;
     }
