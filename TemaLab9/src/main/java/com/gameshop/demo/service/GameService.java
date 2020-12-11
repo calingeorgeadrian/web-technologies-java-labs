@@ -6,9 +6,9 @@ import com.gameshop.demo.mapper.GameMapper;
 import com.gameshop.demo.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class GameService {
@@ -22,29 +22,24 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
     public GameDto get(String id) {
-        return gameMapper.mapToDto(gameRepository.get(id));
+        return gameRepository.get(id);
     }
 
     public List<GameDto> getAll() {
-        return gameRepository.getAll().stream()
-                .map(gameMapper::mapToDto)
-                .collect(Collectors.toList());
+        return gameRepository.getAll();
     }
 
-    public GameDto create(GameDto request) {
-        Game savedGame = gameRepository.save(gameMapper.mapToEntity(request));
-        return gameMapper.mapToDto(savedGame);
+    @Transactional(rollbackFor = Exception.class)
+    public void create(GameDto request) {
+        Game game = gameMapper.mapToEntity(request);
+        gameRepository.save(game);
     }
 
-    public GameDto update(GameDto request) {
-        Game updatedGame = gameRepository.update(gameMapper.mapToEntity(request));
-        if (updatedGame != null) {
-            return gameMapper.mapToDto(updatedGame);
-        }
-        return null;
+    public void update(Long id, String title) {
+        gameRepository.update(id, title);
     }
 
-    public String delete(String id) {
-        return gameRepository.delete(id);
+    public void delete(String id) {
+        gameRepository.delete(id);
     }
 }
