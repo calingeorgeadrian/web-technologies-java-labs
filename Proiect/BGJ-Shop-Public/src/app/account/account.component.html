@@ -1,0 +1,84 @@
+<div class="tt-breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>Account</li>
+    </ul>
+  </div>
+</div>
+<div id="tt-pageContent">
+  <div class="container-indent">
+    <div class="container container-fluid-custom-mobile-padding">
+      <h1 class="tt-title-subpages noborder">ACCOUNT</h1>
+      <div class="tt-shopping-layout">
+        <h2 class="tt-title-border">MY ACCOUNT</h2>
+        <div class="tt-wrapper">
+          <h3 class="tt-title">ORDER HISTORY</h3>
+          <div class="tt-table-responsive">
+            <table class="tt-table-shop-01" *ngIf="orders.length > 0">
+              <thead>
+                <tr>
+                  <th>ORDER</th>
+                  <th>DATE PLACED</th>
+                  <th>DATE DELIVERED</th>
+                  <th>FULFILLMENT STATUS</th>
+                  <th>TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let order of orders">
+                  <td><a href="/order?id={{order.id}}">#{{order.id}}</a></td>
+                  <td>{{order.datePlaced | date: 'MMM d, y, h:mm:ss a'}}</td>
+                  <td>{{order.dateDelivered | date: 'MMM d, y, h:mm:ss a'}}</td>
+                  <td *ngIf="order.status == 0">Pending</td>
+                  <td *ngIf="order.status == 1">In Transit</td>
+                  <td *ngIf="order.status == 2">Finished</td>
+                  <td *ngIf="order.status == 3">Canceled</td>
+                  <td>${{order.total | number : '1.2-2'}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h4 *ngIf="orders.length == 0">No orders.</h4>
+          </div>
+        </div>
+        <div class="tt-wrapper">
+          <h3 class="tt-title">ACCOUNT DETAILS</h3>
+          <div class="tt-table-responsive">
+            <table class="tt-table-shop-02">
+              <tbody>
+                <tr>
+                  <td>NAME:</td>
+                  <td>{{user.firstName}} {{user.lastName}}</td>
+                </tr>
+                <tr>
+                  <td>E-MAIL:</td>
+                  <td>{{user.email}} </td>
+                </tr>
+                <tr>
+                  <td>PHONE:</td>
+                  <td>{{user.phone}} </td>
+                </tr>
+                <tr>
+                  <td>COUNTRY:</td>
+                  <td>{{user.country}} </td>
+                </tr>
+                <tr>
+                  <td>CITY:</td>
+                  <td>{{user.city}} </td>
+                </tr>
+                <tr>
+                  <td>ADDRESS:</td>
+                  <td>{{user.address}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tt-wrapper">
+            <a href="/editAccount" class="btn">CHANGE DETAILS</a><br>
+            <a href="/login" class="btn" (click)="logout()">LOG OUT</a><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

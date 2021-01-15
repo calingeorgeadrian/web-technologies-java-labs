@@ -1,0 +1,31 @@
+<div class="authentication">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12">
+        <form class="card auth_form">
+          <div class="header">
+            <img class="logo" src="assets/images/logo.svg" alt="">
+            <h5>Log in</h5>
+          </div>
+          <div class="body">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="email" [(ngModel)]="user.email" placeholder="Username">
+              <div class="input-group-append">
+                <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password">
+            </div>
+            <a class="btn btn-primary btn-block waves-effect waves-light" (click)="login()" style="color: white;">SIGN IN</a>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-8 col-sm-12">
+        <div class="card">
+          <img src="assets/images/signin.svg" alt="Sign In" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

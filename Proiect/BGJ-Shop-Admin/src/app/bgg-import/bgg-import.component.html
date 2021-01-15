@@ -1,0 +1,62 @@
+<section class="content">
+  <div class="body_scroll">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+          <h2>Products List</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="zmdi zmdi-home"></i> Board Games Journal</a></li>
+            <li class="breadcrumb-item">Products</li>
+            <li class="breadcrumb-item active">Products List</li>
+          </ul>
+          <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="table-responsive">
+              <table class="table table-hover product_item_list c_table mb-0">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th data-breakpoints="xs">Price</th>
+                    <th data-breakpoints="xs md">Stock</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <tr *ngFor="let game of pageOfItems">
+                    <td><img src="{{game.imageUrl}}" width="48" alt="Product img"></td>
+                    <td><h5>{{game.title}}</h5></td>
+                    <td>
+                      <input type="number" class="form-control" name="price" min="1" [(ngModel)]="game.price" required>
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" name="stock" min="0" [(ngModel)]="game.stock" required>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="body">
+              <jw-pagination [items]="games" (changePage)="onChangePage($event)"></jw-pagination>
+            </div>
+          </div>
+          <button class="btn btn-raised btn-primary waves-effect" type="submit"
+                  (click)="submit()">
+            SUBMIT
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

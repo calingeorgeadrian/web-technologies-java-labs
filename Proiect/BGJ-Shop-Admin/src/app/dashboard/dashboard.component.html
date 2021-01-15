@@ -1,0 +1,240 @@
+<section class="content">
+  <div class="body_scroll">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+          <h2>Dashboard</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="zmdi zmdi-home"></i> Board Games Journal</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ul>
+          <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="header">
+              <h2><strong><i class="zmdi zmdi-chart"></i> Daily</strong> Report</h2>
+            </div>
+            <div class="mb-2">
+              <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 text-center">
+                  <div class="card w_data_1">
+                    <div class="body">
+                      <div class="w_icon green"><i class="zmdi zmdi-money"></i></div>
+                      <h4 class="mt-3 mb-1">${{dailyReport.revenue | number : '1.2-2'}}</h4>
+                      <span class="text-muted">Revenue</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 text-center">
+                  <div class="card w_data_1">
+                    <div class="body">
+                      <div class="w_icon orange"><i class="zmdi zmdi-long-arrow-return"></i></div>
+                      <h4 class="mt-3 mb-1">{{dailyReport.canceled}}</h4>
+                      <span class="text-muted">Canceled</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 text-center">
+                  <div class="card w_data_1">
+                    <div class="body">
+                      <div class="w_icon cyan"><i class="zmdi zmdi-shopping-cart"></i></div>
+                      <h4 class="mt-3 mb-1">{{dailyReport.orders}}</h4>
+                      <span class="text-muted">Orders</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="header">
+              <h2><strong><i class="zmdi zmdi-chart"></i> Weekly</strong> Report</h2>
+            </div>
+            <div class="mb-2">
+              <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="widget_2">
+                    <div class="body">
+                      <div class="state_w1 mb-1 mt-1">
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h6>Revenue</h6>
+                            <h5>${{weeklyReport.revenue | number : '1.2-2'}}</h5>
+                          </div>
+                          <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ffb01c">5,2,3,7,6,4,8</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="widget_2">
+                    <div class="body">
+                      <div class="state_w1 mb-1 mt-1">
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h6>Canceled</h6>
+                            <h5>{{weeklyReport.canceled}}</h5>
+                          </div>
+                          <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#2bcbba">8,2,6,5,1,4,6</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="widget_2">
+                    <div class="body">
+                      <div class="state_w1 mb-1 mt-1">
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h6>Orders</h6>
+                            <h5>{{weeklyReport.orders}}</h5>
+                          </div>
+                          <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#45aaf2">7,5,3,8,4,6,2</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="header">
+              <h2><strong><i class="zmdi zmdi-chart"></i> Monthly</strong> Report</h2>
+            </div>
+            <div class="mb-2">
+              <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="widget_2">
+                    <div class="body">
+                      <div class="state_w1 mb-1 mt-1">
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h6>Revenue</h6>
+                            <h5>${{monthlyReport.revenue | number : '1.2-2'}}</h5>
+                          </div>
+                          <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#ffb01c">5,2,3,7,6,4,8</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="widget_2">
+                    <div class="body">
+                      <div class="state_w1 mb-1 mt-1">
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h6>Canceled</h6>
+                            <h5>{{monthlyReport.canceled}}</h5>
+                          </div>
+                          <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#2bcbba">8,2,6,5,1,4,6</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <div class="widget_2">
+                    <div class="body">
+                      <div class="state_w1 mb-1 mt-1">
+                        <div class="d-flex justify-content-between">
+                          <div>
+                            <h6>Orders</h6>
+                            <h5>{{monthlyReport.orders}}</h5>
+                          </div>
+                          <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#45aaf2">7,5,3,8,4,6,2</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-sm-12 col-md-12 col-lg-8">
+          <div class="card">
+            <div class="header">
+              <h2><strong>Recent</strong> Orders</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover theme-color c_table">
+                <thead>
+                  <tr>
+                    <th style="width:60px;">#</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of orders">
+                    <td><a href="/order?id={{order.id}}">{{order.id}}</a></td>
+                    <td>{{order.firstName}} {{order.lastName}}</td>
+                    <td>{{order.address}}, {{order.city}}, {{order.country}}</td>
+                    <td>${{order.total | number : '1.2-2'}}</td>
+                    <td>
+                      <span class="badge badge-warning" *ngIf="order.status == 0">Pending</span>
+                      <span class="badge badge-info" *ngIf="order.status == 1">In Transit</span>
+                      <span class="badge badge-success" *ngIf="order.status == 2">Finished</span>
+                      <span class="badge badge-danger" *ngIf="order.status == 3">Canceled</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="card">
+            <div class="header">
+              <h2><strong>Popular</strong> Products</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover theme-color c_table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th></th>
+                    <th>Sold</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let game of games">
+                    <td class="w70"><img class="w50" src="{{game.imageUrl}}" alt=""></td>
+                    <td><a href="/product?id={{game.id}}" class="text-muted">{{game.title}}</a></td>
+                    <td>{{game.count}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+      </div>
+    </div>
+  </div>
+</section>

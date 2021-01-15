@@ -1,0 +1,70 @@
+<div class="tt-breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>Account</li>
+    </ul>
+  </div>
+</div>
+<div id="tt-pageContent">
+  <div class="container-indent">
+    <div class="container container-fluid-custom-mobile-padding">
+      <h1 class="tt-title-subpages noborder">ACCOUNT</h1>
+      <div class="tt-shopping-layout">
+        <h2 class="tt-title">ORDER #{{order.id}}</h2>
+        <a href="/account" class="tt-link-back">
+          <i class="icon-e-19"></i> RETURN TO ACCOUNT PAGE
+        </a>
+        <div class="tt-data">{{order.datePlaced | date: 'MMM d, y, h:mm:ss a'}}</div>
+        <div class="tt-wrapper">
+          <div class="tt-table-responsive">
+            <table class="tt-table-shop-03">
+              <thead>
+                <tr>
+                  <th>PRODUCT</th>
+                  <th>PRICE</th>
+                  <th>QUANTITY</th>
+                  <th>TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let game of games">
+                  <td><a href="/product?id={{game.gameId}}">{{game.title}}</a></td>
+                  <td>${{game.price | number : '1.2-2'}}</td>
+                  <td>{{game.quantity}}</td>
+                  <td>${{game.price * game.quantity | number : '1.2-2'}}</td>
+                </tr>
+                <tr>
+                  <td colspan="3"><strong>SHIPPING</strong></td>
+                  <td>$20</td>
+                </tr>
+                <tr>
+                  <td colspan="3"><strong>TOTAL</strong></td>
+                  <td><strong>${{order.total | number : '1.2-2'}}</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tt-wrapper">
+          <div class="tt-shop-info">
+            <div class="tt-item">
+              <h6 class="tt-title">ADDRESS:</h6>
+              <div class="tt-description">
+                <p>
+                  Name: {{order.firstName}} {{order.lastName}}
+                </p>
+                <p>
+                  Phone: {{order.phone}}
+                </p>
+                <p>
+                  Address: {{order.address}}, {{order.city}}, {{order.country}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

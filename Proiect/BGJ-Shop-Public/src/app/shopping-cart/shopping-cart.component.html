@@ -1,0 +1,172 @@
+<div class="tt-breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>Shopping Cart</li>
+    </ul>
+  </div>
+</div>
+<div id="tt-pageContent" *ngIf="items.length == 0">
+  <div class="container-indent nomargin">
+    <div class="tt-empty-cart">
+      <span class="tt-icon icon-f-39"></span>
+      <h1 class="tt-title">SHOPPING CART IS EMPTY</h1>
+      <p>You have no items in your shopping cart.</p>
+      <p *ngIf="!globals.user"><a href="/login">Login</a> to start shopping!</p>
+      <a href="/" class="btn">CONTINUE SHOPPING</a>
+    </div>
+  </div>
+</div>
+<div id="tt-pageContent" *ngIf="items.length != 0">
+  <div class="container-indent">
+    <div class="container">
+      <h1 class="tt-title-subpages noborder">SHOPPING CART</h1>
+      <div class="row">
+        <div class="col-sm-12 col-xl-8">
+          <div class="tt-shopcart-table">
+            <table>
+              <tbody>
+                <tr *ngFor="let item of items">
+                  <td>
+                    <a (click)="remove(item)" class="tt-btn-close"></a>
+                  </td>
+                  <td>
+                    <div class="tt-product-img">
+                      <img data-src="{{item.imageUrl}}" alt="">
+                    </div>
+                  </td>
+                  <td>
+                    <h2 class="tt-title">
+                      <a href="/product?id={{item.gameId}}">{{item.title}}</a>
+                    </h2>
+                    <ul class="tt-list-parameters">
+                      <li>
+                        <div class="tt-price">
+                          <span class="old-price" *ngIf="item.price != item.newPrice" style="text-decoration:line-through;">${{item.price | number : '1.2-2'}} </span>
+                          <span *ngIf="item.price == item.newPrice">${{item.price | number : '1.2-2'}} </span>
+                          <span class="new-price" style="color: red;" *ngIf="item.price != item.newPrice">&nbsp;${{item.newPrice | number : '1.2-2'}}</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="detach-quantity-mobile"></div>
+                      </li>
+                      <li>
+                        <div class="tt-price subtotal">
+                          <span *ngIf="item.price == item.newPrice">${{item.price * item.quantity | number : '1.2-2'}}</span>
+                          <span *ngIf="item.price != item.newPrice">${{item.newPrice * item.quantity | number : '1.2-2'}}</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <div class="tt-price">
+                      <span class="old-price" *ngIf="item.price != item.newPrice" style="text-decoration:line-through;">${{item.price | number : '1.2-2'}} </span>
+                      <span *ngIf="item.price == item.newPrice">${{item.price | number : '1.2-2'}} </span>
+                      <span class="new-price" style="color: red;" *ngIf="item.price != item.newPrice">&nbsp;${{item.newPrice | number : '1.2-2'}}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="detach-quantity-desctope">
+                      <div class="tt-input-counter style-01">
+                        <span class="minus-btn" (click)="updateQuantity(item, -1)"></span>
+                        <input type="text" name="quantity" [(ngModel)]="item.quantity" size="5">
+                        <span class="plus-btn" (click)="updateQuantity(item, 1)"></span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="tt-price subtotal">
+                      <span *ngIf="item.price == item.newPrice">${{item.price * item.quantity | number : '1.2-2'}}</span>
+                      <span *ngIf="item.price != item.newPrice">${{item.newPrice * item.quantity | number : '1.2-2'}}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="tt-shopcart-btn">
+              <div class="col-right">
+                <a class="btn-link" href="/cart" (click)="empty()" *ngIf="items.length != 0"><i class="icon-h-02"></i>CLEAR SHOPPING CART</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-xl-4"
+             *ngIf="items.length != 0">
+          <div class="tt-shopcart-wrapper">
+            <div class="tt-shopcart-box">
+              <h4 class="tt-title">
+                Shipping Details
+              </h4>
+              <p>Enter your shipping details to finish your order.</p>
+              <form class="form-default">
+                <div class="form-group">
+                  <label for="firstName">First Name <sup>*</sup></label>
+                  <input type="text" class="form-control" id="first_name" name="firstName" [(ngModel)]="order.firstName" [ngModelOptions]="{standalone: true}" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name <sup>*</sup></label>
+                  <input type="text" class="form-control" id="last_name" name="lastName" [(ngModel)]="order.lastName" [ngModelOptions]="{standalone: true}" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone <sup>*</sup></label>
+                  <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="order.phone" [ngModelOptions]="{standalone: true}" placeholder="Phone">
+                </div>
+                <div class="form-group">
+                  <label for="country">Country <sup>*</sup></label>
+                  <input type="text" class="form-control" id="country" name="country" [(ngModel)]="order.country" [ngModelOptions]="{standalone: true}" placeholder="Country">
+                </div>
+                <div class="form-group">
+                  <label for="cityp">City <sup>*</sup></label>
+                  <input type="text" class="form-control" id="city" name="city" [(ngModel)]="order.city" [ngModelOptions]="{standalone: true}" placeholder="City">
+                </div>
+                <div class="form-group">
+                  <label for="address">Address <sup>*</sup></label>
+                  <input type="text" class="form-control" id="address" name="address" [(ngModel)]="order.address" [ngModelOptions]="{standalone: true}" placeholder="Address">
+                </div>
+                <ul class="tt-list-dot list-dot-large">
+                  <li><a href="#">Default Shipping Rate is $20.00</a></li>
+                </ul>
+              </form>
+            </div>
+            <div class="tt-shopcart-box">
+              <h4 class="tt-title">
+                NOTE
+              </h4>
+              <p>Add special instructions for your order...</p>
+              <form class="form-default">
+                <textarea class="form-control" rows="7" [(ngModel)]="order.note"></textarea>
+              </form>
+            </div>
+            <div class="form-group">
+              <label for="address_zip">PROMO CODE <sup>*</sup></label>
+              <input type="text" name="code" class="form-control" id="code" [(ngModel)]="code.code" placeholder="Code">
+            </div>
+
+            <a class="btn btn-lg" (click)="submitCode()" style="color: white;"><span class="icon icon-check_circle"></span>SUBMIT</a>
+            <div class="tt-shopcart-box tt-boredr-large">
+              <table class="tt-shopcart-table01">
+                <tbody>
+                  <tr>
+                    <th>SUBTOTAL</th>
+                    <td>${{subtotal | number : '1.2-2'}}</td>
+                  </tr>
+                  <tr *ngIf="code.code && code.type == 1">
+                    <th style="color: red;">DISCOUNT '{{code.code}}'</th>
+                    <td style="color: red;">-${{code.discount | number : '1.2-2'}}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>GRAND TOTAL (+shipping)</th>
+                    <td>${{total + 20 | number : '1.2-2'}}</td>
+                  </tr>
+                </tfoot>
+              </table>
+              <a class="btn btn-lg" (click)="checkout()" style="color: white;"><span class="icon icon-check_circle"></span>CHECKOUT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

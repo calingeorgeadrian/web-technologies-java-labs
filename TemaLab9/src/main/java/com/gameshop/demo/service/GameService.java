@@ -21,6 +21,7 @@ public class GameService {
         this.gameMapper = gameMapper;
         this.gameRepository = gameRepository;
     }
+
     public GameDto get(String id) {
         return gameRepository.get(id);
     }

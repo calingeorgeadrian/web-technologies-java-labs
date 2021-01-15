@@ -1,0 +1,98 @@
+<div class="tt-breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/products">Shop</a></li>
+      <li>Product</li>
+    </ul>
+  </div>
+</div>
+<div id="tt-pageContent">
+  <div class="container-indent">
+    <!-- /mobile product slider  -->
+    <div class="container container-fluid-mobile">
+      <div class="row">
+        <div class="col-6 hidden-xs">
+          <div class="tt-product-vertical-layout">
+            <div class="tt-product-single-img">
+              <div>
+                <img class="zoom-product" src="{{game.imageUrl}}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="tt-product-single-info">
+            <div class="tt-wrapper">
+              <div class="tt-label">
+                <div class="tt-label-new" *ngIf="game.year < 2019?checkDate(game.dateAdded) && game.stock > 3:false">New</div>
+                <div class="tt-label tt-label-sale" *ngIf="game.stock == 0">Out Of Stock</div>
+                <div class="tt-label tt-label-our-fatured" *ngIf="game.stock > 0 && game.stock <= 3">Low Stock</div>
+              </div>
+            </div>
+            <div class="tt-add-info">
+              <ul>
+                <li><span>SKU:</span> {{game.bggId}}</li>
+                <li><span>Availability:</span> {{game.stock}} in Stock</li>
+              </ul>
+            </div>
+            <h1 class="tt-title">{{game.title}}</h1>
+            <div class="tt-price">
+              <span class="old-price" *ngIf="game.price != game.newPrice">${{game.price | number : '1.2-2'}} </span>
+              <span class="new-price" *ngIf="game.price == game.newPrice">${{game.price | number : '1.2-2'}} </span>
+              <span class="new-price" style="color: red;" *ngIf="game.price != game.newPrice">&nbsp;${{game.newPrice | number : '1.2-2'}}</span>
+            </div>
+            <div class="tt-wrapper">
+              {{game.description}}
+            </div>
+            <div class="tt-wrapper">
+              <div class="tt-countdown_box_02">
+                <div class="tt-countdown_inner">
+                  <div class="tt-countdown"
+                       data-date="2018-11-01"
+                       data-year="Yrs"
+                       data-month="Mths"
+                       data-week="Wk"
+                       data-day="Day"
+                       data-hour="Hrs"
+                       data-minute="Min"
+                       data-second="Sec"></div>
+                </div>
+              </div>
+            </div>
+            <div class="tt-wrapper">
+              <div class="tt-row-custom-01">
+                <div class="col-item">
+                  <div class="tt-input-counter style-01">
+                    <span class="minus-btn" (click)="updateQuantity(-1)"></span>
+                    <input type="text" value="{{quantity}}" size="5">
+                    <span class="plus-btn" (click)="updateQuantity(1)"></span>
+                  </div>
+                </div>
+                <div class="col-item">
+                  <a class="btn btn-lg" (click)="addToCart()" style="color: white;" *ngIf="globals.user"><i class="icon-f-39"></i>ADD TO CART</a>
+                  <a class="btn btn-lg" href="/login" *ngIf="!globals.user"><i class="icon-f-39"></i>LOGIN TO ADD TO CART</a>
+                </div>
+              </div>
+            </div>
+            <div class="tt-wrapper">
+              <ul class="tt-list-btn" *ngIf="this.globals.user">
+                <li><a class="btn-link" href="/wishlist" (click)="addToWishlist()"><i class="icon-n-072"></i>ADD TO WISH LIST</a></li>
+              </ul>
+            </div>
+            <div class="tt-wrapper">
+              <div class="tt-add-info">
+                <ul>
+                  <li><span>Players:</span> {{game.minPlayers}} - {{game.maxPlayers}}</li>
+                  <li><span>Year of release:</span> {{game.year}}</li>
+                  <li><span>Playing time:</span> {{game.playingTime}} min</li>
+                  <li><span>Product type:</span> <span *ngIf="game.type == 'boardgame'">Board Game</span><span *ngIf="game.type == 'boardgameexpansion'">Expansion</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

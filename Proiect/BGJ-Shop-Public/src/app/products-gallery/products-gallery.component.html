@@ -1,0 +1,113 @@
+<div class="tt-breadcrumb">
+	<div class="container">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li>Products</li>
+		</ul>
+	</div>
+</div>
+<div id="tt-pageContent">
+	<div class="container-indent">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-lg-3 col-xl-3 leftColumn aside">
+					<div class="tt-btn-col-close">
+						<a href="#">Close</a>
+					</div>
+					<div class="tt-collapse open tt-filter-detach-option">
+						<div class="tt-collapse-content">
+							<div class="filters-mobile">
+								<div class="filters-row-select">
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">SORT BY</h3>
+						<div class="tt-collapse-content">
+							<ul class="tt-filter-list">
+								<li *ngIf="type">
+									<a href="#" *ngIf="type == 'boardgame'">Board Games</a>
+									<a href="#" *ngIf="type == 'boardgameexpansion'">Expansions</a>
+								</li>
+								<li *ngIf="minPrice || maxPrice">
+									<a *ngIf="minPrice == undefined || minPrice == null || minPrice == 0">$0 — ${{maxPrice}}</a>
+									<a *ngIf="minPrice && maxPrice">${{minPrice}} — ${{maxPrice}}</a>
+									<a *ngIf="maxPrice == undefined || maxPrice == null || maxPrice == 0">${{minPrice}}+</a>
+								</li>
+							</ul>
+							<a class="btn-link-02" (click)="clear()">Clear All</a>
+						</div>
+					</div>
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">PRODUCT CATEGORIES</h3>
+						<div class="tt-collapse-content">
+							<ul class="tt-list-row">
+								<li class="active" *ngIf="type == 'boardgame'"><a href="#">Board Games</a></li>
+								<li><a *ngIf="type != 'boardgame'" (click)="setType('boardgame')">Board Games</a></li>
+								<li class="active" *ngIf="type == 'boardgameexpansion'"><a href="#">Expansions</a></li>
+								<li><a *ngIf="type != 'boardgameexpansion'" (click)="setType('boardgameexpansion')">Expansions</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="tt-collapse open">
+						<h3 class="tt-collapse-title">FILTER BY PRICE</h3>
+						<div class="tt-collapse-content">
+							<ul class="tt-list-row">
+								<li class="active" *ngIf="maxPrice == 50"><a (click)="setPrices(0,50)">$0 — $50</a></li>
+								<li *ngIf="maxPrice != 50"><a (click)="setPrices(0,50)">$0 — $50</a></li>
+								<li class="active" *ngIf="minPrice == 50 && maxPrice == 100"><a (click)="setPrices(50,100)">$50 — $100</a></li>
+								<li *ngIf="minPrice != 50 && maxPrice != 100"><a (click)="setPrices(50,100)">$50 — $100</a></li>
+								<li class="active" *ngIf="minPrice == 100 && maxPrice == 150"><a (click)="setPrices(100,150)">$100 — $150</a></li>
+								<li *ngIf="minPrice != 100 && maxPrice != 150"><a (click)="setPrices(100,150)">$100 — $150</a></li>
+								<li class="active" *ngIf="minPrice == 150 && maxPrice == 200"><a (click)="setPrices(150,200)">$150 —  $200</a></li>
+								<li *ngIf="minPrice != 150 && maxPrice != 200"><a (click)="setPrices(150,200)">$150 —  $200</a></li>
+								<li class="active" *ngIf="minPrice == 200"><a (click)="setPrices(200, 0)">$200+</a></li>
+								<li *ngIf="minPrice != 200"><a (click)="setPrices(200, 0)">$200+</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-9 col-xl-9">
+					<div class="content-indent container-fluid-custom-mobile-padding-02">
+						<div class="tt-filters-options">
+							<h1 class="tt-title">
+								Products <span class="tt-title-total">({{games.length}})</span>
+							</h1>
+						</div>
+						<div class="tt-product-listing row">
+							<div class="col-6 col-md-4 tt-col-item" *ngFor="let game of games">
+								<div class="tt-product thumbprod-center">
+									<div class="tt-image-box">
+										<a class="tt-btn-wishlist" (click)="addToWishlist(game.id)" data-tooltip="Add to Wishlist" data-tposition="left" *ngIf="globals.user"></a>
+										<a href="/product?id={{game.id}}">
+											<span class="tt-img"><img data-src="{{game.imageUrl}}" alt=""></span>
+											<span class="tt-img-roll-over"><img data-src="{{game.imageUrl}}" alt=""></span>
+										</a>
+									</div>
+									<div class="tt-description">
+										<h2 class="tt-title"><a href="/product?id={{game.id}}">{{game.title}}</a></h2>
+										<div class="tt-price">
+											<span class="old-price" *ngIf="game.price != game.newPrice">${{game.price | number : '1.2-2'}} </span>
+											<span *ngIf="game.price == game.newPrice">${{game.price | number : '1.2-2'}} </span>
+											<span class="new-price" style="color: red;" *ngIf="game.price != game.newPrice">&nbsp;${{game.newPrice | number : '1.2-2'}}</span>
+										</div>
+										<div class="tt-product-inside-hover">
+											<div class="tt-row-btn">
+												<a href="#" class="tt-btn-addtocart thumbprod-button-bg" (click)="addToCart(game.id)" data-toggle="modal" data-target="#modalAddToCartProduct">ADD TO CART</a>
+											</div>
+											<div class="tt-row-btn">
+												<a (click)="addToWishlist(game.id)" class="tt-btn-wishlist" *ngIf="globals.user"></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\menu",
+    "\\src\\app\\order-details",
+    "\\src\\app\\product-details",
+    "\\src\\app\\products-gallery",
+    "\\src\\app\\security",
+    "\\src\\app\\user-edit",
+    "\\src\\app\\wishlist"
+  ],
+  "SelectedNode": "\\src\\app\\wishlist\\wishlist.component.html",
+  "PreviewInSolutionExplorer": false
+}

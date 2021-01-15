@@ -1,0 +1,56 @@
+<section class="content">
+  <div class="body_scroll">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+          <h2>Promo Codes</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="zmdi zmdi-home"></i> Board Games Journal</a></li>
+            <li class="breadcrumb-item">Promotions</li>
+            <li class="breadcrumb-item active">Promo Codes</li>
+          </ul>
+          <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="card project_list">
+            <div class="table-responsive">
+              <table class="table table-hover c_table">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Discount</th>
+                    <th>Times used</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let code of pageOfItems">
+                    <td><strong>{{code.code}}</strong></td>
+                    <td>{{code.discount}}<span *ngIf="code.type == 0">%</span><span *ngIf="code.type == 1">$</span></td>
+                    <td>27</td>
+                    <td>
+                      <a href="javascript:void(0);" (click)="delete(code.code)" class="btn btn-danger waves-effect waves-float btn-sm waves-red"><i class="zmdi zmdi-close"></i></a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="body">
+              <jw-pagination [items]="codes" (changePage)="onChangePage($event)"></jw-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

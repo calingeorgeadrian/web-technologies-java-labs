@@ -1,0 +1,14 @@
+<div class="overlay"></div>
+<!-- Page Loader -->
+<!--
+  <div class="page-loader-wrapper">
+  <div class="loader">
+    <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
+    <p>Please wait...</p>
+  </div>
+</div>-->
+<app-search></app-search>
+<app-left-sidebar *ngIf="globals.user"></app-left-sidebar>
+<app-right-sidebar *ngIf="globals.user"></app-right-sidebar>
+<router-outlet></router-outlet>
+

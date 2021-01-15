@@ -1,0 +1,123 @@
+<header>
+  <!-- tt-mobile-header -->
+  <div class="tt-mobile-header">
+    <div class="container-fluid">
+      <div class="header-tel-info">
+        <i class="icon-f-93"></i> 777 2345 7885; +777 2345 7886
+      </div>
+    </div>
+    <div class="container-fluid tt-top-line">
+      <div class="tt-desctop-parent-menu tt-parent-box">
+        <div class="tt-desctop-menu">
+          <nav>
+            <ul>
+              <li class="dropdown tt-megamenu-col-02 selected">
+                <a href="/">HOME</a>
+              </li>
+              <li class="dropdown megamenu">
+                <a href="/products">SHOP</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid tt-top-line">
+      <div class="row">
+        <div class="tt-logo-container">
+          <!-- mobile logo -->
+          <a class="tt-logo tt-logo-alignment" href="/"><img src="assets/images/custom/logo.png" alt=""></a>
+          <!-- /mobile logo -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tt-desktop-header -->
+  <div class="tt-desktop-header headerunderline">
+    <div class="container">
+      <div class="tt-header-holder">
+        <div class="tt-col-obj tt-obj-logo">
+          <!-- logo -->
+          <a class="tt-logo tt-logo-alignment" href="/"><img src="assets/images/custom/logo.png" alt=""></a>
+          <!-- /logo -->
+        </div>
+        <div class="tt-col-obj tt-obj-search-type2">
+          <div class="tt-search-type2">
+            <!-- tt-search -->
+            <form action="/search" method="get" role="search">
+              <i class="icon-f-85"></i>
+              <input class="tt-search-input" type="search" name="term" [(ngModel)]="term" placeholder="SEARCH PRODUCTS..." aria-label="SEARCH PRODUCTS..." autocomplete="off">
+              <button type="submit" class="tt-btn-search" (click)="search()">SEARCH</button>
+              <div class="search-results" style="display: none;"></div>
+            </form>
+            <!-- /tt-search -->
+          </div>
+        </div>
+        <div class="tt-col-obj obj-move-right">
+          <div class="header-tel-info">
+            <i class="icon-f-93"></i> 777 2345 7885; +777 2345 7886
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container small-header">
+      <div class="tt-header-holder">
+        <div class="tt-col-obj tt-obj-menu">
+          <!-- tt-menu -->
+          <div class="tt-desctop-parent-menu tt-parent-box">
+            <div class="tt-desctop-menu">
+              <nav>
+                <ul>
+                  <li class="dropdown tt-megamenu-col-02 selected">
+                    <a href="/">HOME</a>
+                  </li>
+                  <li class="dropdown megamenu">
+                    <a href="/products">SHOP</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- /tt-menu -->
+        </div>
+        <div class="tt-col-obj tt-obj-options obj-move-right">
+          <!-- tt-cart -->
+          <div class="tt-desctop-parent-cart tt-parent-box">
+            <div class="tt-cart tt-dropdown-obj" data-tooltip="Cart" data-tposition="bottom">
+              <a class="tt-dropdown-toggle" href="/cart">
+                <i class="icon-f-39"></i>
+              </a>
+            </div>
+          </div>
+          <!-- /tt-cart -->
+          <!-- tt-account -->
+          <div class="tt-desctop-parent-account tt-parent-box">
+            <div class="tt-account tt-dropdown-obj">
+              <a class="tt-dropdown-toggle" data-tooltip="My Account" data-tposition="bottom" href="/account" *ngIf="globals.user"><i class="icon-f-94"></i></a>
+              <a class="tt-dropdown-toggle" data-tooltip="My Account" data-tposition="bottom" href="/login" *ngIf="!globals.user"><i class="icon-f-94"></i></a>
+            </div>
+          </div>
+          <!-- /tt-account -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /tt-desktop-header -->
+</header>
+
+<script src="assets/external/jquery/jquery.min.js"></script>
+<script src="assets/external/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/external/slick/slick.min.js"></script>
+<script src="assets/external/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="assets/external/panelmenu/panelmenu.js"></script>
+<script src="assets/external/instafeed/instafeed.min.js"></script>
+<script src="assets/external/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="assets/external/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="assets/external/countdown/jquery.plugin.min.js"></script>
+<script src="assets/external/countdown/jquery.countdown.min.js"></script>
+<script src="assets/external/lazyLoad/lazyload.min.js"></script>
+<script src="assets/js/main.js"></script>
+<!-- form validation and sending to mail -->
+<script src="assets/external/form/jquery.form.js"></script>
+<script src="assets/external/form/jquery.validate.min.js"></script>
+<script src="assets/external/form/jquery.form-init.js"></script>

@@ -26,6 +26,4 @@ public interface GameMapper {
             @Mapping(target = "gameStock", source = "entity.stock")
     })
     GameDto mapToDto(Game entity);
-
-
 }

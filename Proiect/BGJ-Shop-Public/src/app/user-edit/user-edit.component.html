@@ -1,0 +1,60 @@
+<div class="tt-breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>Account</li>
+    </ul>
+  </div>
+</div>
+<div id="tt-pageContent">
+  <div class="container-indent">
+    <div class="container container-fluid-custom-mobile-padding">
+      <h1 class="tt-title-subpages noborder">ACCOUNT</h1>
+      <div class="tt-shopping-layout">
+        <div class="tt-wrapper">
+          <h6 class="tt-title">CHANGE YOUR DETAILS</h6>
+          <div class="form-default">
+            <form>
+              <div class="form-group">
+                <label for="shopInputFirstName" class="control-label">FIRST NAME *</label>
+                <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" id="shopInputFirstName">
+              </div>
+              <div class="form-group">
+                <label for="shopInputLastName" class="control-label">LAST NAME *</label>
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName" id="shopInputLastName">
+              </div>
+              <div class="form-group">
+                <label for="shopEmail" class="control-label">EMAIL ADDRESS *</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="user.email" id="shopEmail">
+              </div>
+              <div class="form-group">
+                <label for="shopPhone" class="control-label">PHONE</label>
+                <input type="text" class="form-control" name="phone" [(ngModel)]="user.phone" id="shopPhone">
+              </div>
+              <div class="form-group">
+                <label for="shopCountry" class="control-label">COUNTRY</label>
+                <input type="text" class="form-control" name="country" [(ngModel)]="user.country" id="shopCountry">
+              </div>
+              <div class="form-group">
+                <label for="shopTown" class="control-label">TOWN / CITY *</label>
+                <input type="text" class="form-control" name="city" [(ngModel)]="user.city" id="shopTown">
+              </div>
+              <div class="form-group">
+                <label for="shopAddress" class="control-label">ADDRESS *</label>
+                <input type="text" class="form-control" name="address" [(ngModel)]="user.address" id="shopAddress">
+              </div>
+              <div class="row tt-offset-21">
+                <div class="col-auto">
+                  <button type="submit" (click)="save()" class="btn">SAVE</button>
+                </div>
+                <div class="col-auto align-self-center">
+                  or	<a href="/account" class="tt-link">Cancel</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

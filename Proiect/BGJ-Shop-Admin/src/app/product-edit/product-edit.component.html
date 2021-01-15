@@ -1,0 +1,134 @@
+<section class="content">
+  <div class="body_scroll">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+          <h2>Product Details</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="zmdi zmdi-home"></i> Board Games Journal</a></li>
+            <li class="breadcrumb-item">Products</li>
+            <li class="breadcrumb-item active">Product Details</li>
+          </ul>
+          <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Import from <strong>BoardGameGeek</strong></h2>
+          </div>
+          <div class="body">
+            <form id="bgg_form" method="POST">
+              <div class="form-group form-float">
+                <label for="email_address">BoardGameGeek Id</label>
+                <input type="number" class="form-control" name="bggId" min="1" [(ngModel)]="product.bggId" required>
+                <div class="help-info">Numbers only, Min. 1</div>
+              </div>
+              <button class="btn btn-raised btn-primary waves-effect" type="submit"
+                      (click)="importFromBgg()">
+                IMPORT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2><strong>Product</strong> Details</h2>
+          </div>
+          <div class="body">
+            <form id="product_form" method="POST">
+              <div class="row clearfix">
+                <div class="col-md-9">
+                  <div class="form-group">
+                    <label for="email_address">Title</label>
+                    <input type="text" class="form-control" name="title" minlength="1" maxlength="128" [(ngModel)]="product.title" required>
+                    <div class="help-info">Min. 1, Max. 128 characters</div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="email_address">Year</label>
+                    <input type="number" class="form-control" name="year" [(ngModel)]="product.year" required>
+                    <div class="help-info">Numbers only</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-float">
+                <label for="email_address">Image URL</label>
+                <input type="url" class="form-control" name="imageUrl" [(ngModel)]="product.imageUrl">
+                <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+              </div>
+              <div class="form-group form-float">
+                <label for="email_address">Type</label>
+                <select class="form-control show-tick"
+                        (change)="selectOption($event.target.value)">
+                  <option [value]="type.value"
+                          *ngFor="let type of constants.productTypes">
+                    {{type.text}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group form-float">
+                <label for="email_address">Description</label>
+                <textarea rows="4" class="form-control no-resize" placeholder="Write a short description for this product..." name="description" [(ngModel)]="product.description"></textarea>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email_address">Min Players</label>
+                    <input type="number" class="form-control" name="minPlayers" min="1" [(ngModel)]="product.minPlayers" required>
+                    <div class="help-info">Numbers only, Min. 1</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email_address">Max Players</label>
+                    <input type="number" class="form-control" name="maxPlayers" min="1" [(ngModel)]="product.maxPlayers" required>
+                    <div class="help-info">Numbers only, Min. 1</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email_address">Playing Time</label>
+                    <input type="number" class="form-control" name="playingTime" min="1" [(ngModel)]="product.playingTime" required>
+                    <div class="help-info">Numbers only, Min. 1</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email_address">Price</label>
+                    <input type="number" class="form-control" name="price" min="1" [(ngModel)]="product.price" required>
+                    <div class="help-info">Numbers only, Min. 1</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email_address">Stock</label>
+                    <input type="number" class="form-control" name="stock" min="0" [(ngModel)]="product.stock" required>
+                    <div class="help-info">Numbers only, Min. 0</div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-raised btn-primary waves-effect" type="submit"
+                      (click)="submit()">
+                SUBMIT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

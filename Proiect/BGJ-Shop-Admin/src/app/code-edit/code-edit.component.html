@@ -1,0 +1,63 @@
+<section class="content">
+  <div class="body_scroll">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+          <h2>Promotion Details</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="zmdi zmdi-home"></i> Board Games Journal</a></li>
+            <li class="breadcrumb-item">Promotions</li>
+            <li class="breadcrumb-item active">Promotion Details</li>
+          </ul>
+          <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2><strong>Promotion</strong> Details</h2>
+          </div>
+          <div class="body">
+            <form id="promotion_form" method="POST">
+              <div class="form-group form-float">
+                <label for="email_address">Code</label>
+                <input type="text" class="form-control" name="title" minlength="1" maxlength="32" [(ngModel)]="code.code" required>
+                <div class="help-info">Min. 1, Max. 32 characters</div>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email_address">Discount</label>
+                    <input *ngIf="code.type == 0" type="number" class="form-control" name="discount" min="1" max="100" [(ngModel)]="code.discount" required>
+                    <input *ngIf="code.type == 1" type="number" class="form-control" name="discount" min="1" [(ngModel)]="code.discount" required>
+                    <div class="help-info">Numbers only, Min. 1<span *ngIf="code.type == 0">, Max. 100</span></div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="email_address">Type</label>
+                  <select class="form-control show-tick"
+                          (change)="selectOption($event.target.value)">
+                    <option [value]="type.value"
+                            *ngFor="let type of constants.codeTypes">
+                      {{type.text}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-raised btn-primary waves-effect" type="submit"
+                      (click)="submit()">
+                SUBMIT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+<section class="content">
+  <div class="body_scroll">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+          <h2>Order Details</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard"><i class="zmdi zmdi-home"></i> Board Games Journal</a></li>
+            <li class="breadcrumb-item">Orders</li>
+            <li class="breadcrumb-item active">Order Details</li>
+          </ul>
+          <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2><strong>Order</strong> Details</h2>
+          </div>
+          <div class="body">
+            <form id="product_form" method="POST">
+              <div class="row clearfix">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email_address">First Name</label>
+                    <input type="text" class="form-control" name="firstName" minlength="1" maxlength="128" [(ngModel)]="order.firstName" required>
+                    <div class="help-info">Min. 1, Max. 128 characters</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email_address">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" minlength="1" maxlength="128" [(ngModel)]="order.lastName" required>
+                    <div class="help-info">Min. 1, Max. 128 characters</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email_address">Phone</label>
+                    <input type="text" class="form-control" name="phone" minlength="1" maxlength="12" [(ngModel)]="order.phone" required>
+                    <div class="help-info">Min. 1, Max. 128 characters</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email_address">City</label>
+                    <input type="text" class="form-control" name="city" minlength="1" maxlength="128" [(ngModel)]="order.city" required>
+                    <div class="help-info">Min. 1, Max. 128 characters</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="email_address">Country</label>
+                    <input type="text" class="form-control" name="country" minlength="1" maxlength="128" [(ngModel)]="order.country" required>
+                    <div class="help-info">Min. 1, Max. 128 characters</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-float">
+                <label for="email_address">Address</label>
+                <input type="text" class="form-control" name="address" minlength="1" maxlength="128" [(ngModel)]="order.address" required>
+                <div class="help-info">Min. 1, Max. 128 characters</div>
+              </div>
+              <div class="form-group form-float">
+                <label for="email_address">Note</label>
+                <textarea rows="4" class="form-control no-resize" placeholder="Write a short note for this order..." name="note" [(ngModel)]="order.note"></textarea>
+              </div>
+              <button class="btn btn-raised btn-primary waves-effect" type="submit"
+                      (click)="submit()">
+                SUBMIT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
