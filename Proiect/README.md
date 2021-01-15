@@ -1,9 +1,9 @@
 # Board Games Journal Shop
 
-Proiectul este format din 3 aplicatii: 
-**Admin Dashboard**: BGJ-Shop-Admin
-**Public Client**: BGJ-Shop-Public
-**Backend**: BGJ-Shop-Backend
+Proiectul este format din 3 aplicatii:  
+**Admin Dashboard**: BGJ-Shop-Admin  
+**Public Client**: BGJ-Shop-Public  
+**Backend**: BGJ-Shop-Backend  
 
 Dashboard-ul pentru Admin si Clientul Public sunt reprezinta aplicatii front-end construite cu Angular ce trimit request-uri catre aplicatia de back-end
 
@@ -13,17 +13,17 @@ Cele doua aplicatii sunt configurate sa poata fi pornite in paralel, pe porturi 
 3. npm install
 4. Dupa ce se termina de instalat dependintele, se executa "npm start"
 
-In acest moment cele doua aplicatii ar trebui sa fie pornite la urmatoarele adrese:
-Dashboard: http://localhost:4401/
-Public Client: http://localhost:4200/
+In acest moment cele doua aplicatii ar trebui sa fie pornite la urmatoarele adrese:  
+**Dashboard**: http://localhost:4401/  
+**Public Client**: http://localhost:4200/  
 
-Aplicatia de Backend reprezinta o aplicatie Java Spring si se poate porni direct din IntelliJ. Datele sunt stocate intr-o baza de date MySQL. Pentru crearea acesteia, se executa script-ul din fisierul schema.sql in MySQL Workbench.
+Aplicatia de Backend reprezinta o aplicatie Java Spring si se poate porni direct din IntelliJ. Datele sunt stocate intr-o baza de date MySQL. Pentru crearea acesteia, se executa script-ul din fisierul schema.sql in MySQL Workbench. Adresa pentru apeluri catre API este cea standard: http://localhost:8080/
 
 
 #### Admin Dashboard
 La pornire, aplicatia va prezenta utilizatorului pagina de Login. Acesta trebuie sa introduca username-ul si parola corespunzatoare Administratorului pentru a putea accesa Dashboard-ul:
 
-**Username**: admin
+**Username**: admin  
 **Password**: parola12
 
 Acestea pot fi gasite si modificate in fisierul application.properties din aplicatia de back-end.
