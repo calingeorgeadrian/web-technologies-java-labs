@@ -1,9 +1,7 @@
 package com.bgjshop.backend.service;
 
 import com.bgjshop.backend.domain.Game;
-import com.bgjshop.backend.domain.Promotion;
 import com.bgjshop.backend.dto.GameDto;
-import com.bgjshop.backend.dto.PopularGameDto;
 import com.bgjshop.backend.dto.PromotionDto;
 import com.bgjshop.backend.exceptions.DuplicateEntityException;
 import com.bgjshop.backend.exceptions.EntityNotFoundException;

@@ -1,9 +1,7 @@
 package com.bgjshop.backend.repository;
 
 import com.bgjshop.backend.domain.Code;
-import com.bgjshop.backend.domain.Promotion;
 import com.bgjshop.backend.dto.CodeDto;
-import com.bgjshop.backend.dto.PromotionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

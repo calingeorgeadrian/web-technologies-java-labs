@@ -1,8 +1,6 @@
 package com.bgjshop.backend.repository;
 
-import com.bgjshop.backend.domain.Code;
 import com.bgjshop.backend.domain.Promotion;
-import com.bgjshop.backend.dto.CodeDto;
 import com.bgjshop.backend.dto.PromotionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

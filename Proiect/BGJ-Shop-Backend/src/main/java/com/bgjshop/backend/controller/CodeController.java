@@ -1,9 +1,7 @@
 package com.bgjshop.backend.controller;
 
 import com.bgjshop.backend.dto.CodeDto;
-import com.bgjshop.backend.dto.PromotionDto;
 import com.bgjshop.backend.service.CodeService;
-import com.bgjshop.backend.service.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

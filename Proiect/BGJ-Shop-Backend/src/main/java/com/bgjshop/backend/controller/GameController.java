@@ -1,7 +1,6 @@
 package com.bgjshop.backend.controller;
 
 import com.bgjshop.backend.dto.GameDto;
-import com.bgjshop.backend.dto.PopularGameDto;
 import com.bgjshop.backend.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

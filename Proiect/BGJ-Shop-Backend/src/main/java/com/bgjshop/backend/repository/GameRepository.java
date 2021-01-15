@@ -2,7 +2,6 @@ package com.bgjshop.backend.repository;
 
 import com.bgjshop.backend.domain.Game;
 import com.bgjshop.backend.dto.GameDto;
-import com.bgjshop.backend.dto.PopularGameDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;

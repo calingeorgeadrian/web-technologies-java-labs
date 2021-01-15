@@ -48,6 +48,14 @@
         </div>
         <div class="tt-wrapper">
           <div class="tt-shop-info">
+            <div class="tt-item" *ngIf="order.note">
+              <h6 class="tt-title">Note:</h6>
+              <div class="tt-description">
+                <p>
+                  {{order.note}}
+                </p>
+              </div>
+            </div>
             <div class="tt-item">
               <h6 class="tt-title">ADDRESS:</h6>
               <div class="tt-description">

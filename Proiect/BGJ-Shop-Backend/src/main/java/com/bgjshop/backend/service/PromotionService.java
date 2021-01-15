@@ -1,11 +1,8 @@
 package com.bgjshop.backend.service;
 
-import com.bgjshop.backend.domain.Code;
 import com.bgjshop.backend.domain.Promotion;
-import com.bgjshop.backend.dto.CodeDto;
 import com.bgjshop.backend.dto.PromotionDto;
 import com.bgjshop.backend.exceptions.EntityNotFoundException;
-import com.bgjshop.backend.mapper.CodeMapper;
 import com.bgjshop.backend.mapper.PromotionMapper;
 import com.bgjshop.backend.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

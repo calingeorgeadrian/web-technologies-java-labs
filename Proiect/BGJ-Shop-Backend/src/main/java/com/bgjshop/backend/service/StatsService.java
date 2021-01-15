@@ -1,18 +1,9 @@
 package com.bgjshop.backend.service;
 
-import com.bgjshop.backend.domain.Game;
-import com.bgjshop.backend.domain.Order;
-import com.bgjshop.backend.domain.OrderItem;
 import com.bgjshop.backend.dto.*;
-import com.bgjshop.backend.mapper.GameMapper;
-import com.bgjshop.backend.mapper.OrderItemMapper;
-import com.bgjshop.backend.mapper.OrderMapper;
-import com.bgjshop.backend.repository.GameRepository;
-import com.bgjshop.backend.repository.OrderRepository;
 import com.bgjshop.backend.repository.StatsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,13 +25,13 @@ public class StatsService {
         return statsRepository.getOrderStats();
     }
     public ReportDto getReport(Integer type) {
-        String intervalType = "";
+        String intervalType;
         switch(type) {
             case 1: {intervalType =  "1 DAY"; break;}
             case 2: {intervalType =  "7 DAY"; break;}
             case 3: {intervalType =  "1 MONTH"; break;}
             default: {intervalType = "1 DAY";}
-        };
+        }
         return statsRepository.getReport(intervalType);
     }
 }

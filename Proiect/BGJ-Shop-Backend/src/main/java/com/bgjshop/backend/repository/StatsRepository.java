@@ -1,21 +1,12 @@
 package com.bgjshop.backend.repository;
 
-import com.bgjshop.backend.domain.Game;
-import com.bgjshop.backend.domain.Order;
-import com.bgjshop.backend.domain.OrderItem;
 import com.bgjshop.backend.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository

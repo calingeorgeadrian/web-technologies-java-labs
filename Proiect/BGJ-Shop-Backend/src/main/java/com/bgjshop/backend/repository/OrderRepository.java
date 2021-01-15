@@ -1,6 +1,5 @@
 package com.bgjshop.backend.repository;
 
-import com.bgjshop.backend.domain.Game;
 import com.bgjshop.backend.domain.Order;
 import com.bgjshop.backend.domain.OrderItem;
 import com.bgjshop.backend.dto.OrderDto;
@@ -153,7 +152,10 @@ public class OrderRepository {
             preparedStatement.setFloat(9, order.getTotal());
             preparedStatement.setString(10, order.getCode());
             preparedStatement.setInt(11, order.getStatus());
-            preparedStatement.setTimestamp(12, Timestamp.valueOf(order.getDateDelivered()));
+            if(order.getDateDelivered() != null)
+                preparedStatement.setTimestamp(12, Timestamp.valueOf(order.getDateDelivered()));
+            else
+                preparedStatement.setObject(12, null);
             preparedStatement.setLong(13, order.getId());
             return preparedStatement;
         });
